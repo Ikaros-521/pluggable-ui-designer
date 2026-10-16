@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Agent 任务编排调度中心 - 细节点替换：发丝线与暖石版</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            stone: {
+              50: '#fafaf9',
+              100: '#f5f5f4',
+              200: '#e7e5e4',
+              300: '#d6d3d1',
+              400: '#a8a29e',
+              500: '#78716c',
+              600: '#57534e',
+              700: '#44403c',
+              800: '#292524',
+              900: '#1c1917',
+              950: '#0c0a09',
+            }
+          },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
+            mono: ['"SF Mono"', 'Consolas', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#fbfaf8] text-stone-800 antialiased min-h-screen">
+  <!-- 细节点替换提示条 (Mixin Pill) -->
+  <div class="bg-stone-900 text-stone-200 text-xs py-2 px-4 flex items-center justify-between border-b border-stone-800 font-mono">
+    <div class="flex items-center gap-2">
+      <span class="inline-block w-2 h-2 rounded-full bg-amber-400"></span>
+      <span>[已挂载细节点插件]</span>
+      <span class="bg-stone-800 px-2 py-0.5 rounded text-amber-300">slot_elevation: plugin_fine_hairline</span>
+      <span class="bg-stone-800 px-2 py-0.5 rounded text-amber-300">slot_palette: plugin_warm_stone</span>
+    </div>
+    <span class="text-stone-400 hidden sm:inline">结构 100% 保持不变，微调边框与石系质感</span>
+  </div>
+
+  <!-- 顶部导航 -->
+  <header class="sticky top-0 z-30 border-b border-stone-200/80 bg-[#fbfaf8]/90 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="h-9 w-9 rounded-lg bg-stone-900 flex items-center justify-center text-amber-100 font-serif font-bold text-base shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2)]">
+          A
+        </div>
+        <div>
+          <h1 class="text-base font-semibold text-stone-900 tracking-tight">AgentFlow Orchestrator</h1>
+          <p class="text-xs text-stone-500 font-mono">暖调人文纸质感 + 发丝线质感</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-amber-50 text-amber-800 border border-amber-200/80">
+          <span class="h-1.5 w-1.5 rounded-full bg-amber-600"></span>
+          微内核 100% 就绪
+        </span>
+        <button class="px-3.5 py-1.5 rounded-lg bg-stone-900 text-white text-xs font-medium shadow-[inset_0_1px_0_0_rgba(255,255,255,0.25)] hover:bg-stone-800 transition-colors">
+          新建任务流
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主体工作区 -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+    <!-- 概览指标行 (发丝线 + 微内高光 + 暖石色) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="bg-white rounded-xl border border-stone-200/90 p-5 shadow-[inset_0_1px_0_0_rgba(255,255,255,1),0_1px_2px_rgba(0,0,0,0.02)]">
+        <div class="flex items-center justify-between text-xs font-medium text-stone-500">
+          <span>活跃智能体 (Subagents)</span>
+          <span class="text-amber-700 font-semibold">+2 今日</span>
+        </div>
+        <div class="mt-3 text-2xl font-bold font-mono text-stone-900">8 / 10</div>
+        <div class="mt-2 text-xs text-stone-400">并发利用率 80%</div>
+      </div>
+
+      <div class="bg-white rounded-xl border border-stone-200/90 p-5 shadow-[inset_0_1px_0_0_rgba(255,255,255,1),0_1px_2px_rgba(0,0,0,0.02)]">
+        <div class="flex items-center justify-between text-xs font-medium text-stone-500">
+          <span>槽位插件挂载率 (Slot Match)</span>
+          <span class="text-stone-700 font-semibold">100%</span>
+        </div>
+        <div class="mt-3 text-2xl font-bold font-mono text-stone-900">12 槽位</div>
+        <div class="mt-2 text-xs text-stone-400">平均发现耗时 2.4ms</div>
+      </div>
+
+      <div class="bg-white rounded-xl border border-stone-200/90 p-5 shadow-[inset_0_1px_0_0_rgba(255,255,255,1),0_1px_2px_rgba(0,0,0,0.02)]">
+        <div class="flex items-center justify-between text-xs font-medium text-stone-500">
+          <span>总任务执行批次 (Total Runs)</span>
+          <span class="text-stone-500">本周</span>
+        </div>
+        <div class="mt-3 text-2xl font-bold font-mono text-stone-900">1,482</div>
+        <div class="mt-2 text-xs text-amber-700 font-medium">99.8% 执行成功率</div>
+      </div>
+
+      <div class="bg-white rounded-xl border border-stone-200/90 p-5 shadow-[inset_0_1px_0_0_rgba(255,255,255,1),0_1px_2px_rgba(0,0,0,0.02)]">
+        <div class="flex items-center justify-between text-xs font-medium text-stone-500">
+          <span>平均响应延迟 (Latency)</span>
+          <span class="text-stone-400 font-mono">P99</span>
+        </div>
+        <div class="mt-3 text-2xl font-bold font-mono text-stone-900">320ms</div>
+        <div class="mt-2 text-xs text-stone-400">冷启动开销 0ms (纯标准库)</div>
+      </div>
+    </div>
+
+    <!-- 核心列表与运行状态 -->
+    <div class="bg-white rounded-xl border border-stone-200/90 shadow-[inset_0_1px_0_0_rgba(255,255,255,1),0_1px_2px_rgba(0,0,0,0.02)] overflow-hidden">
+      <div class="p-5 border-b border-stone-100 flex items-center justify-between">
+        <div>
+          <h2 class="text-base font-semibold text-stone-900">正在运行的流水线实例</h2>
+          <p class="text-xs text-stone-500 mt-0.5">挂载实时槽位插件，隔离沙箱执行</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <input type="text" placeholder="搜索任务或插件..." class="px-3 py-1.5 text-xs rounded-lg border border-stone-200 focus:outline-none focus:ring-1 focus:ring-stone-400 w-48 bg-stone-50/50">
+          <button class="px-3 py-1.5 text-xs font-medium text-stone-700 border border-stone-200 rounded-lg hover:bg-stone-50">筛选</button>
+        </div>
+      </div>
+
+      <div class="divide-y divide-stone-100">
+        <!-- 任务条目 1 -->
+        <div class="p-5 flex items-center justify-between hover:bg-stone-50/60 transition-colors">
+          <div class="flex items-center gap-4">
+            <div class="h-10 w-10 rounded-lg bg-stone-100 text-stone-800 flex items-center justify-center font-bold text-xs border border-stone-200">
+              VID
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-sm font-semibold text-stone-900">后室预告片多素材混剪渲染</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-stone-100 text-stone-700 border border-stone-200">plugin_analog_horror</span>
+              </div>
+              <p class="text-xs text-stone-500 mt-0.5">输入源：5段视频切片 | 耗时：16.7s | 产物大小：1.48 MB</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-medium bg-amber-50 text-amber-800 border border-amber-200/60">
+              已完成
+            </span>
+            <button class="text-xs text-stone-900 hover:text-stone-600 font-medium">查看产物 &rarr;</button>
+          </div>
+        </div>
+
+        <!-- 任务条目 2 -->
+        <div class="p-5 flex items-center justify-between hover:bg-stone-50/60 transition-colors">
+          <div class="flex items-center gap-4">
+            <div class="h-10 w-10 rounded-lg bg-stone-100 text-stone-800 flex items-center justify-center font-bold text-xs border border-stone-200">
+              SCP
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-sm font-semibold text-stone-900">SCP-096 极速档案解说生成</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-stone-100 text-stone-700 border border-stone-200">plugin_scp_archive</span>
+              </div>
+              <p class="text-xs text-stone-500 mt-0.5">输入源：单视频精剪 | 耗时：14.2s | 语速：+18% 科技男声</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-medium bg-amber-50 text-amber-800 border border-amber-200/60">
+              已完成
+            </span>
+            <button class="text-xs text-stone-900 hover:text-stone-600 font-medium">查看产物 &rarr;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

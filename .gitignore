@@ -1,0 +1,11 @@
+# System files
+.DS_Store
+Thumbs.db
+
+# Agent Local Workspace caches
+.agents/
+.gemini/
+
+# Output scratch files
+*.tmp
+*.log

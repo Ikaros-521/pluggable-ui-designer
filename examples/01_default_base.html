@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Agent 任务编排调度中心 - 通用审美底座版</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
+            mono: ['"SF Mono"', 'Consolas', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen">
+  <!-- 顶部导航 -->
+  <header class="sticky top-0 z-30 border-b border-slate-200 bg-white/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="h-9 w-9 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold text-base shadow-sm">
+          A
+        </div>
+        <div>
+          <h1 class="text-base font-semibold text-slate-900 leading-tight">AgentFlow Orchestrator</h1>
+          <p class="text-xs text-slate-500 font-mono">基座原型：通用顶级审美模式</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
+          <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          微内核 100% 就绪
+        </span>
+        <button class="px-3.5 py-1.5 rounded-lg bg-slate-900 text-white text-xs font-medium hover:bg-slate-800 transition-colors">
+          新建任务流
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主体工作区 -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+    <!-- 概览指标行 (4等分经典栅格) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
+        <div class="flex items-center justify-between text-xs font-medium text-slate-500">
+          <span>活跃智能体 (Subagents)</span>
+          <span class="text-emerald-600 font-semibold">+2 今日</span>
+        </div>
+        <div class="mt-3 text-2xl font-bold font-mono text-slate-900">8 / 10</div>
+        <div class="mt-2 text-xs text-slate-400">并发利用率 80%</div>
+      </div>
+
+      <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
+        <div class="flex items-center justify-between text-xs font-medium text-slate-500">
+          <span>槽位插件挂载率 (Slot Match)</span>
+          <span class="text-blue-600 font-semibold">100%</span>
+        </div>
+        <div class="mt-3 text-2xl font-bold font-mono text-slate-900">12 槽位</div>
+        <div class="mt-2 text-xs text-slate-400">平均发现耗时 2.4ms</div>
+      </div>
+
+      <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
+        <div class="flex items-center justify-between text-xs font-medium text-slate-500">
+          <span>总任务执行批次 (Total Runs)</span>
+          <span class="text-slate-500">本周</span>
+        </div>
+        <div class="mt-3 text-2xl font-bold font-mono text-slate-900">1,482</div>
+        <div class="mt-2 text-xs text-emerald-600 font-medium">99.8% 执行成功率</div>
+      </div>
+
+      <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
+        <div class="flex items-center justify-between text-xs font-medium text-slate-500">
+          <span>平均响应延迟 (Latency)</span>
+          <span class="text-slate-400 font-mono">P99</span>
+        </div>
+        <div class="mt-3 text-2xl font-bold font-mono text-slate-900">320ms</div>
+        <div class="mt-2 text-xs text-slate-400">冷启动开销 0ms (纯标准库)</div>
+      </div>
+    </div>
+
+    <!-- 核心列表与运行状态 -->
+    <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+      <div class="p-5 border-b border-slate-100 flex items-center justify-between">
+        <div>
+          <h2 class="text-base font-semibold text-slate-900">正在运行的流水线实例</h2>
+          <p class="text-xs text-slate-500 mt-0.5">挂载实时槽位插件，隔离沙箱执行</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <input type="text" placeholder="搜索任务或插件..." class="px-3 py-1.5 text-xs rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 w-48">
+          <button class="px-3 py-1.5 text-xs font-medium text-slate-600 border border-slate-200 rounded-lg hover:bg-slate-50">筛选</button>
+        </div>
+      </div>
+
+      <div class="divide-y divide-slate-100">
+        <!-- 任务条目 1 -->
+        <div class="p-5 flex items-center justify-between hover:bg-slate-50/80 transition-colors">
+          <div class="flex items-center gap-4">
+            <div class="h-10 w-10 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-xs">
+              VID
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-sm font-semibold text-slate-900">后室预告片多素材混剪渲染</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-purple-50 text-purple-700 border border-purple-100">plugin_analog_horror</span>
+              </div>
+              <p class="text-xs text-slate-500 mt-0.5">输入源：5段视频切片 | 耗时：16.7s | 产物大小：1.48 MB</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-medium bg-emerald-50 text-emerald-700">
+              已完成
+            </span>
+            <button class="text-xs text-indigo-600 hover:text-indigo-800 font-medium">查看产物 &rarr;</button>
+          </div>
+        </div>
+
+        <!-- 任务条目 2 -->
+        <div class="p-5 flex items-center justify-between hover:bg-slate-50/80 transition-colors">
+          <div class="flex items-center gap-4">
+            <div class="h-10 w-10 rounded-lg bg-cyan-50 text-cyan-600 flex items-center justify-center font-bold text-xs">
+              SCP
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-sm font-semibold text-slate-900">SCP-096 极速档案解说生成</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-cyan-50 text-cyan-700 border border-cyan-100">plugin_scp_archive</span>
+              </div>
+              <p class="text-xs text-slate-500 mt-0.5">输入源：单视频精剪 | 耗时：14.2s | 语速：+18% 科技男声</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-medium bg-emerald-50 text-emerald-700">
+              已完成
+            </span>
+            <button class="text-xs text-indigo-600 hover:text-indigo-800 font-medium">查看产物 &rarr;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
